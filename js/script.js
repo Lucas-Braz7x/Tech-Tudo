@@ -1,3 +1,4 @@
+/* Gravando no storage */
 const form = document.getElementById('form');
 
 class Clientes{
@@ -29,6 +30,7 @@ class BancoDados{
     localStorage.setItem(id, JSON.stringify(clienteAtual));
 
     localStorage.setItem('id', id);
+
   }
 }
 
@@ -45,4 +47,20 @@ form.addEventListener('submit', event =>{
   )
 
  bancoDados.gravar(cliente)
+ alert(`Obrigado por se cadastrar!
+${cliente.nome}: ${cliente.email} `);
 })
+
+/* Animação das letras no header */
+const header = 'Vai perder essa super promoção? ';
+let i = 0;
+
+const typing = () => {
+  if(i < header.length){
+    document.getElementById('header').innerHTML += header.charAt(i);
+    i++;
+    setTimeout(typing, 150);
+  }
+}
+
+typing();
